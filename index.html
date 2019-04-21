@@ -31,10 +31,16 @@
             <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
             <img id="360-great-wall" src="./img/360-great-wall.jpg" />
 
-            <!-- 2d lantern vid https://www.youtube.com/watch?v=RFcGvmFtR-s -->
-            <video id="video-2d" src="./vid/2d-rise-lantern-festival.mp4" loop="true"></video>
-            <!-- 360 vid https://www.youtube.com/watch?v=WwRjPP-ANzs -->
-            <video id="360-vid-tiger-shark" src="./vid/360-tiger-shark-bahamas.mp4"></video>
+            <!-- 2d gopro 6 https://www.youtube.com/watch?v=vr0qNXmkUJ8&t=208s -->
+            <!-- <video id="2d-gopro6" src="vid/2d-gopro-hero-6.mp4" loop="true"></video> -->
+            <!-- 2d gopro https://www.youtube.com/watch?v=Prt-G4cPIn4-->
+            <!-- <video id="video-gopro-2d" src="./vid/2d-gopro--awards-million-dollar.mp4"></video> -->
+            <video id="video-2d" src="./vid/2d-gopro-hero-6.mp4" loop="true"></video>
+
+
+            <!-- https://www.youtube.com/watch?v=WwRjPP-ANzs -->
+            <!-- https://www.youtube.com/watch?v=AX4hWfyHr5g -->
+            <video id="video-360" src="./vid/360-tiger-shark-bahamas.mp4" loop="true"></video>
 
             <!-- Video assets -->
             <img id="play" src="assets/play.png" />
@@ -65,7 +71,7 @@
 
         <!-- Banner Left -->
         <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
-        <a-box position="-2 1.6 -4"
+        <a-box position="-2.5 1.6 -4"
                depth="0.05d"
                width="1.3"
                height="1.5"
@@ -74,7 +80,7 @@
 
                <!-- Mastil -->
                <a-box position="0 -1 -0.05"
-                      height="3"
+                      height="1s"
                       width="0.2"
                       depth="0.1"
                       color="brown">
@@ -162,7 +168,7 @@
 
         <!-- Banner Right-->
         <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
-        <a-box position="2 1.6 -4"
+        <a-box position="2.5 1.6 -4"
                depth="0.05d"
                width="1.3"
                height="1.5"
@@ -171,7 +177,7 @@
 
                <!-- Mastil -->
                <a-box position="0 -1 -0.05"
-                      height="3"
+                      height="1"
                       width="0.2"
                       depth="0.1"
                       color="brown">
@@ -199,9 +205,8 @@
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro-hero-6.mp4"
+                         event-set__click-reset-controls="_event: click; _target: #controls; src: #play">
                </a-entity>
 
                <!-- 2D vid 2 text -->
@@ -216,9 +221,8 @@
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-background="_event: click; _target: #sky; src: #360-jellyfish;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro--awards-million-dollar.mp4"
+                         event-set__click-reset-controls="_event: click; _target: #controls; src: #play">
                </a-entity>
 
                <!-- 3D Vid 1 text -->
@@ -233,9 +237,8 @@
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-background="_event: click; _target: #sky; src: #360-pile-gate;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;"
+                         event-set__click-sky="_event: click; _target: #sky; visible: false;">
                </a-entity>
 
                <!-- 3D Vid 2 text -->
@@ -249,21 +252,22 @@
                          geometry="primitive: plane; width: auto; height: auto;"
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-background="_event: click; _target: #sky; src: #360-great-wall;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         event-set__leave="_event: mouseleave; text.color: #353b48;">
                </a-entity>
 
         </a-box>
 
         <a-video src="#video-2d"
-                 width="8"
-                 height="4.5"
+                 scale="0.5 0.5 1"
+                 width="16"
+                 height="9"
                  position="0 5 -9">
                  
-                 <a-image id="controls" src="#play" position="0 -2.6 0.1" color="black" scale="0.5 0.5 1" play-pause></a-image>
+                 <a-image id="controls-2d" src="#play" position="0 -5 0.1" color="black" scale="0.8 0.8 1" play-pause-2d></a-image>
         </a-video>
+
+        <videosphere src="#video-360" rotation="0 0 0"></videosphere>
+        <a-image id="controls-360" src="#play" rotation="0 -90 0" position="3 1 -2.3" color="black" scale="0.8 0.8 1" play-pause-360></a-image>
 
     </a-scene>
 
@@ -271,7 +275,8 @@
 
 </html>
 
-<!-- Crear aplicación web 360 y VR que contenga los siguientes elementos.
+<!--
+Crear aplicación web 360 y VR que contenga los siguientes elementos.
 
 Imagen 360 de background
 Menú con 20 elementos en el que se pueda hacer scroll
@@ -279,8 +284,5 @@ Menú con 20 elementos en el que se pueda hacer scroll
         Cambiar la imagen de background
         Cargar vídeo 360
         Cargar un vídeo plano 2d
-        Cargar imagen o grupo de imágenes -->
-
-
-
-         <!-- src="https://www.youtube.com/embed/8lsB-P8nGSM" -->
+        Cargar imagen o grupo de imágenes
+-->
