@@ -19,19 +19,27 @@
         </a-camera>
 
         <a-assets>
-            <img id="360-alcatraz-shop" src="./img/great-wall.jpg" />
+            <!-- SF Alcatraz https://pixexid.com/free-photo/41-360-pier-39-sf-alcatraz-shop -->
+            <img id="360-sf-alcatraz" src="./img/360-sf-alcatraz-shop-7140x3570.jpg" />
+            <!-- Jellyfish https://www.flickr.com/photos/42983210@N03/47560713912/in/pool-360degrees/ -->
+            <img id="360-jellyfish" src="./img/360-jellyfish.jpg" />
+            <!-- Pile Gate https://www.flickr.com/photos/jamescastle/46105769784/in/pool-360degrees/ -->
+            <img id="360-pile-gate" src="./img/360-pile-gate-dubrovnik.jpg" />
+            <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
+            <img id="360-great-wall" src="./img/360-great-wall.jpg" />
         </a-assets>
 
-        <a-plane color="#bdc3c7"
+        <a-plane id="plane"
+                 color="#bdc3c7"
                  position="0 -0.5 -5"
                  rotation="-90 0 0"
-                 scale="5000 5000 1">
+                 scale="8 8 1">
                 </a-plane>
                 
         <!-- <a-sky src="#360-alcatraz-shop"></a-sky> -->
-        <a-sky color="#353b48"></a-sky>
+        <a-sky id="sky" color="#353b48"></a-sky>
 
-        <!-- Notas: En la entidad (propiedad text), con el atributo 'geometry' le marco un a-plane al texto para que pueda ser hoverable -->
+        <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
         <a-box position="-2 1 -4"
                depth="0.05d"
                width="1.3"
@@ -56,44 +64,64 @@
                                wrapCount: 11">
                </a-entity>
 
-               <!-- SF Alcatraz https://pixexid.com/free-photo/41-360-pier-39-sf-alcatraz-shop -->
                <a-entity position="0 0.3 0.05"
                          scale="1 1 1"
                          text="value: SF Alcatraz;
                                color: #353b48;
                                width: 1;
                                align: center;
-                               wrapCount: 11">
+                               wrapCount: 10"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
                </a-entity>
 
-               <!-- Jellyfish https://www.flickr.com/photos/42983210@N03/47560713912/in/pool-360degrees/ -->
                <a-entity position="0 0.05 0.05"
                          scale="1 1 1"
                          text="value: Jellyfish;
                                color: #353b48;
                                width: 1;
                                align: center;
-                               wrapCount: 11">
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-jellyfish;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
                </a-entity>
 
-               <!-- Pile Gate https://www.flickr.com/photos/jamescastle/46105769784/in/pool-360degrees/ -->
                <a-entity position="0 -0.2 0.05"
                          scale="1 1 1"
                          text="value: Pile Gate;
                                color: #353b48;
                                width: 1;
                                align: center;
-                               wrapCount: 11">
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-pile-gate;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
                </a-entity>
 
-               <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
                <a-entity position="0 -0.45 0.05"
                          scale="1 1 1"
                          text="value: Great Wall;
                                color: #353b48;
                                width: 1;
                                align: center;
-                               wrapCount: 11">
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-great-wall;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
                </a-entity>
 
         </a-box>
