@@ -27,24 +27,41 @@
             <img id="360-pile-gate" src="./img/360-pile-gate-dubrovnik.jpg" />
             <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
             <img id="360-great-wall" src="./img/360-great-wall.jpg" />
+
+            <!-- 360 vid https://www.youtube.com/watch?v=WwRjPP-ANzs -->
+            <video id="360-vid-tiger-shark" src="./vid/360-tiger-shark-bahamas.mp4"></video>
         </a-assets>
 
+        <!-- Plane -->
         <a-plane id="plane"
                  color="#bdc3c7"
-                 position="0 -0.5 -5"
+                 position="0 0 -5"
                  rotation="-90 0 0"
-                 scale="8 8 1">
-                </a-plane>
-                
-        <!-- <a-sky src="#360-alcatraz-shop"></a-sky> -->
-        <a-sky id="sky" color="#353b48"></a-sky>
+                 scale="5000 5000 1">
+        </a-plane>
 
+        <!-- Base -->
+        <a-cylinder id="cylinder"
+                    height="0.05"
+                    color="#2C3A47"
+                    position="0 0.05 -5"
+                    scale="3 1 3">
+        </a-cylinder>
+
+        <!-- Sky -->
+        <a-sky id="sky"
+               color="#353b48"
+               rotation="0 61 0">
+        </a-sky>
+
+        <!-- Banner Left -->
         <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
-        <a-box position="-2 1 -4"
+        <a-box position="-2 1.6 -4"
                depth="0.05d"
                width="1.3"
                height="1.5"
-               color="#EAB543">
+               color="#EAB543"
+               rotation="0 45 0">
 
                <!-- Mastil -->
                <a-box position="0 -1 -0.05"
@@ -54,16 +71,17 @@
                       color="brown">
                </a-box>
 
-               <!-- Backgrounds Title -->
+               <!-- Backgrounds text -->
                <a-entity position="0 0.6 0.05"
                          scale="1.2 1.2 1"
                          text="value: Backgrounds;
-                               color: #353b48;
+                               color: black;
                                width: 1;
                                align: center;
                                wrapCount: 11">
                </a-entity>
 
+               <!-- Alcatraz text -->
                <a-entity position="0 0.3 0.05"
                          scale="1 1 1"
                          text="value: SF Alcatraz;
@@ -76,9 +94,11 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
                </a-entity>
 
+                <!-- Jellyfish text -->
                <a-entity position="0 0.05 0.05"
                          scale="1 1 1"
                          text="value: Jellyfish;
@@ -91,9 +111,11 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-jellyfish;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
                </a-entity>
 
+               <!-- Pile gate text -->
                <a-entity position="0 -0.2 0.05"
                          scale="1 1 1"
                          text="value: Pile Gate;
@@ -106,9 +128,11 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-pile-gate;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
                </a-entity>
 
+               <!-- Great wall text -->
                <a-entity position="0 -0.45 0.05"
                          scale="1 1 1"
                          text="value: Great Wall;
@@ -121,7 +145,105 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-great-wall;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;">
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+               </a-entity>
+
+        </a-box>
+
+        <!-- Banner Right-->
+        <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
+        <a-box position="2 1.6 -4"
+               depth="0.05d"
+               width="1.3"
+               height="1.5"
+               color="#EAB543"
+               rotation="0 -45 0">
+
+               <!-- Mastil -->
+               <a-box position="0 -1 -0.05"
+                      height="3"
+                      width="0.2"
+                      depth="0.1"
+                      color="brown">
+               </a-box>
+
+               <!-- Video text -->
+               <a-entity position="0 0.6 0.05"
+                         scale="1.2 1.2 1"
+                         text="value: Videos;
+                               color: black;
+                               width: 1;
+                               align: center;
+                               wrapCount: 11">
+               </a-entity>
+
+               <!-- 2d vid 1 text -->
+               <a-entity position="0 0.3 0.05"
+                         scale="1 1 1"
+                         text="value: 2D vid 1;
+                               color: #353b48;
+                               width: 1;
+                               align: center;
+                               wrapCount: 10"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+               </a-entity>
+
+               <!-- 2D vid 2 text -->
+               <a-entity position="0 0.05 0.05"
+                         scale="1 1 1"
+                         text="value: 2D Vid 2;
+                               color: #353b48;
+                               width: 1;
+                               align: center;
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-jellyfish;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+               </a-entity>
+
+               <!-- 3D Vid 1 text -->
+               <a-entity position="0 -0.2 0.05"
+                         scale="1 1 1"
+                         text="value: 3D Vid 1;
+                               color: #353b48;
+                               width: 1;
+                               align: center;
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-pile-gate;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+               </a-entity>
+
+               <!-- 3D Vid 2 text -->
+               <a-entity position="0 -0.45 0.05"
+                         scale="1 1 1"
+                         text="value: 3D Vid 2;
+                               color: #353b48;
+                               width: 1;
+                               align: center;
+                               wrapCount: 11"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-great-wall;"
+                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
                </a-entity>
 
         </a-box>
@@ -132,7 +254,7 @@
 </body>
 
 </html>
-
+360-vid-tiger-shark
 
 <!-- Crear aplicación web 360 y VR que contenga los siguientes elementos.
 
@@ -145,11 +267,5 @@ Menú con 20 elementos en el que se pueda hacer scroll
         Cargar imagen o grupo de imágenes -->
 
 
-        <!-- 
-            Credits:
-            sf alcatraz: https://pixexid.com/free-photo/41-360-pier-39-sf-alcatraz-shop
-            jellyfish: https://www.flickr.com/photos/42983210@N03/47560713912/in/pool-360degrees/
-            pile gate: https://www.flickr.com/photos/jamescastle/46105769784/in/pool-360degrees/
-            great wall: https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/
 
-         -->
+         <!-- src="https://www.youtube.com/embed/8lsB-P8nGSM" -->
