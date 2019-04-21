@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    
     <title>Visyon - A-Frame technical test</title>
 </head>
 
 <body>
-
+        
     <a-scene>
 
         <a-camera>
@@ -28,8 +31,14 @@
             <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
             <img id="360-great-wall" src="./img/360-great-wall.jpg" />
 
+            <!-- 2d lantern vid https://www.youtube.com/watch?v=RFcGvmFtR-s -->
+            <video id="video-2d" src="./vid/2d-rise-lantern-festival.mp4" loop="true"></video>
             <!-- 360 vid https://www.youtube.com/watch?v=WwRjPP-ANzs -->
             <video id="360-vid-tiger-shark" src="./vid/360-tiger-shark-bahamas.mp4"></video>
+
+            <!-- Video assets -->
+            <img id="play" src="assets/play.png" />
+            <img id="pause" src="assets/pause.png" />
         </a-assets>
 
         <!-- Plane -->
@@ -248,13 +257,19 @@
 
         </a-box>
 
+        <a-video src="#video-2d"
+                 width="8"
+                 height="4.5"
+                 position="0 5 -9">
+                 
+                 <a-image id="controls" src="#play" position="0 -2.6 0.1" color="black" scale="0.5 0.5 1" play-pause></a-image>
+        </a-video>
+
     </a-scene>
 
-    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
-360-vid-tiger-shark
 
 <!-- Crear aplicación web 360 y VR que contenga los siguientes elementos.
 
