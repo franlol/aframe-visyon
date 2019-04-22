@@ -40,7 +40,7 @@
 
             <!-- https://www.youtube.com/watch?v=WwRjPP-ANzs -->
             <!-- https://www.youtube.com/watch?v=AX4hWfyHr5g -->
-            <video id="video-360" src="./vid/360-tiger-shark-bahamas.mp4" loop="true"></video>
+            <video id="video-360" src="./vid/360-magical-ice-rusia.mp4"></video>
 
             <!-- Video assets -->
             <img id="play" src="assets/play.png" />
@@ -97,7 +97,7 @@
                </a-entity>
 
                <!-- Alcatraz text -->
-               <a-entity position="0 0.3 0.05"
+               <!-- <a-entity position="0 0.3 0.05"
                          scale="1 1 1"
                          text="value: SF Alcatraz;
                                color: #353b48;
@@ -110,7 +110,24 @@
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
                          event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         event-set__click-plane="_event: click; _target: #plane; visible: false;"
+                         event-set__click-sphere="_event: click; _target: #videosphere; visible: false;"
+                         event-set__click-sky="_event: click; _target: #sky; visible: true;">
+               </a-entity> -->
+               <!-- Alcatraz text -->
+               <a-entity position="0 0.3 0.05"
+                         scale="1 1 1"
+                         text="value: SF Alcatraz;
+                               color: #353b48;
+                               width: 1;
+                               align: center;
+                               wrapCount: 10"
+                         geometry="primitive: plane; width: auto; height: auto;"
+                         material="visible: false;"
+                         event-set__enter="_event: mouseenter; text.color: white;"
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
+                         show-image-360>
                </a-entity>
 
                 <!-- Jellyfish text -->
@@ -126,8 +143,7 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-jellyfish;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         show-image-360>
                </a-entity>
 
                <!-- Pile gate text -->
@@ -143,8 +159,7 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-pile-gate;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         show-image-360>
                </a-entity>
 
                <!-- Great wall text -->
@@ -160,8 +175,7 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-background="_event: click; _target: #sky; src: #360-great-wall;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;">
+                         show-image-360>
                </a-entity>
 
         </a-box>
@@ -206,7 +220,7 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro-hero-6.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls; src: #play">
+                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play">
                </a-entity>
 
                <!-- 2D vid 2 text -->
@@ -222,7 +236,7 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro--awards-million-dollar.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls; src: #play">
+                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play">
                </a-entity>
 
                <!-- 3D Vid 1 text -->
@@ -257,6 +271,7 @@
 
         </a-box>
 
+        <!-- 2D Video -->
         <a-video src="#video-2d"
                  scale="0.5 0.5 1"
                  width="16"
@@ -266,8 +281,20 @@
                  <a-image id="controls-2d" src="#play" position="0 -5 0.1" color="black" scale="0.8 0.8 1" play-pause-2d></a-image>
         </a-video>
 
-        <videosphere src="#video-360" rotation="0 0 0"></videosphere>
+        <!-- 360 Video -->
+        <a-videosphere id="videosphere" visible="false" src="#video-360" rotation="0 -90 0"></a-videosphere>
         <a-image id="controls-360" src="#play" rotation="0 -90 0" position="3 1 -2.3" color="black" scale="0.8 0.8 1" play-pause-360></a-image>
+
+
+        <!-- <a-assets>
+            <video id="vid" src="360-magical-ice-rusia.mp4" autoplay></video>
+        </a-assets>
+
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <a-videosphere src="#vid" rotation="0 -90 0"></a-videosphere> -->
 
     </a-scene>
 
