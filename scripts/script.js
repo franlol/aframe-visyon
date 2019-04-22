@@ -39,7 +39,7 @@ AFRAME.registerComponent("play-pause-2d", {
         const video = document.querySelector("#video-2d");
         const controls = document.querySelector("#controls-2d");
 
-        this.el.addEventListener("click", function () {
+        this.el.addEventListener("click", () => {
             if (video.paused) {
                 video.play();
                 controls.setAttribute("src", "#pause");
@@ -60,7 +60,7 @@ AFRAME.registerComponent("play-pause-360", {
         const sky = document.querySelector("a-sky");
         const sphere = document.querySelector("#videosphere");
 
-        this.el.addEventListener("click", function () {
+        this.el.addEventListener("click", () => {
             if (video.paused) {
                 video.play();
                 sphere.setAttribute("visible", true);
