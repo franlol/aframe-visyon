@@ -2,416 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
-    <script src="./scripts/script.js"></script>
-    
-    <title>Visyon - A-Frame technical test</title>
+      <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+      <script src="./scripts/script.js"></script>
+
+      <title>Visyon - A-Frame technical test</title>
 </head>
-
-<body>
-        
-    <a-scene>
-
-        <a-camera>
-            <a-cursor></a-cursor>
-        </a-camera>
-
-        <a-assets>
-            <!-- Texture base -->
-            <img src="assets/base.jpg" id="texture-base" />
-            <img src="assets/stick.jpg" id="texture-stick" />
-            <img src="assets/wood.jpg" id="texture-wood" />
-            <img src="assets/water.jpg" id="texture-water" />
-            <img src="assets/sky.php" id="texture-sky" />
-
-            <!-- 2d From pixbay (free to use) -->
-            <img id="image-2d-architecture" src="./img/2d-architecture.jpg" />
-            <img id="image-2d-ireland" src="./img/2d-ireland.jpg" />
-            <img id="image-2d-landscape" src="./img/2d-landscape.jpg" />
-            <img id="image-2d-sunset" src="./img/2d-sunset.jpg" />
-
-            <!-- SF Alcatraz https://pixexid.com/free-photo/41-360-pier-39-sf-alcatraz-shop -->
-            <img id="image-360-sf-alcatraz" src="./img/360-sf-alcatraz-shop-7140x3570.jpg" />
-            <!-- Jellyfish https://www.flickr.com/photos/42983210@N03/47560713912/in/pool-360degrees/ -->
-            <img id="image-360-jellyfish" src="./img/360-jellyfish.jpg" />
-            <!-- Pile Gate https://www.flickr.com/photos/jamescastle/46105769784/in/pool-360degrees/ -->
-            <img id="image-360-pile-gate" src="./img/360-pile-gate-dubrovnik.jpg" />
-            <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
-            <img id="image-360-great-wall" src="./img/360-great-wall.jpg" />
-
-            <!-- 2d gopro 6 https://www.youtube.com/watch?v=vr0qNXmkUJ8&t=208s -->
-            <!-- 2d gopro https://www.youtube.com/watch?v=Prt-G4cPIn4-->
-            <video id="video-2d" src="./vid/2d-gopro-hero-6.mp4" loop="true"></video>
-
-
-            <!-- https://www.youtube.com/watch?v=WwRjPP-ANzs -->
-            <!-- https://www.youtube.com/watch?v=AX4hWfyHr5g -->
-            <!-- https://vimeo.com/215984568 -->
-            <video id="video-360" src="./vid/360-magical-ice-rusia.mp4" loop="true"></video>
-
-            <!-- Video assets -->
-            <img id="play" src="assets/play.png" />
-            <img id="pause" src="assets/pause.png" />
-        </a-assets>
-
-        <!-- Plane -->
-        <a-plane id="plane-1"
-                 color="#bdc3c7"
-                 position="0 0 -5"
-                 rotation="-90 0 0"
-                 scale="5000 5000 1"
-                 material="src: #texture-water;
-                           repeat: 1000 1000">
-        </a-plane>
-
-        <!-- Base -->
-        <a-cylinder id="base-1"
-                    height="0.05"
-                    color="#2C3A47"
-                    position="0 0.05 -5"
-                    scale="3 1 3"
-                    material="src: #texture-base;
-                              repeat: 1 1;">
-        </a-cylinder>
-
-        <!-- Sky -->
-        <a-sky id="sky"
-               rotation="0 61 0"
-               src="#texture-sky">
-        </a-sky>
-
-        <!-- Banner Left -->
-        <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
-        <a-box position="-2.5 1.6 -4"
-               depth="0.05d"
-               width="1.3"
-               height="1.5"
-               color="#EAB543"
-               rotation="0 45 0"
-               src="#texture-wood">
-
-               <!-- Mastil -->
-               <a-box position="0 -1 -0.05"
-                      height="1s"
-                      width="0.2"
-                      depth="0.1"
-                      src="#texture-stick">
-               </a-box>
-
-               <!-- Backgrounds text -->
-               <a-entity position="0 0.6 0.05"
-                         scale="1.2 1.2 1"
-                         text="value: Backgrounds;
-                               color: black;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11">
-               </a-entity>
-
-               <!-- Alcatraz text -->
-               <a-entity position="0 0.3 0.05"
-                         scale="1 1 1"
-                         text="value: SF Alcatraz;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #sky; src: #image-360-sf-alcatraz;"
-                         show-image-360>
-               </a-entity>
-
-                <!-- Jellyfish text -->
-               <a-entity position="0 0.05 0.05"
-                         scale="1 1 1"
-                         text="value: Jellyfish;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #sky; src: #image-360-jellyfish;"
-                         show-image-360>
-               </a-entity>
-
-               <!-- Pile gate text -->
-               <a-entity position="0 -0.2 0.05"
-                         scale="1 1 1"
-                         text="value: Pile Gate;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #sky; src: #image-360-pile-gate;"
-                         show-image-360>
-               </a-entity>
-
-               <!-- Great wall text -->
-               <a-entity position="0 -0.45 0.05"
-                         scale="1 1 1"
-                         text="value: Great Wall;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #sky; src: #image-360-great-wall;"
-                         show-image-360>
-               </a-entity>
-
-        </a-box>
-
-        <!-- Banner Right-->
-        <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
-        <a-box position="2.5 1.6 -4"
-               depth="0.05d"
-               width="1.3"
-               height="1.5"
-               color="#EAB543"
-               rotation="0 -45 0"
-               src="#texture-wood">
-
-               <!-- Mastil -->
-               <a-box position="0 -1 -0.05"
-                      height="1"
-                      width="0.2"
-                      depth="0.1"
-                      src="#texture-stick">
-               </a-box>
-
-               <!-- Video text -->
-               <a-entity position="0 0.6 0.05"
-                         scale="1.2 1.2 1"
-                         text="value: Videos;
-                               color: black;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11">
-               </a-entity>
-
-               <!-- 2d vid 1 text -->
-               <a-entity position="0 0.3 0.05"
-                         scale="1 1 1"
-                         text="value: 2D vid 1;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro-hero-6.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
-                         play-2d>
-               </a-entity>
-
-               <!-- 2D vid 2 text -->
-               <a-entity position="0 0.05 0.05"
-                         scale="1 1 1"
-                         text="value: 2D Vid 2;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro--awards-million-dollar.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
-                         play-2d>
-               </a-entity>
-
-               <!-- 3D Vid 1 text -->
-               <a-entity position="0 -0.2 0.05"
-                         scale="1 1 1"
-                         text="value: 3D Vid 1;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-magical-ice-rusia.mp4"
-                         play-360>
-               </a-entity>
-
-               <!-- 3D Vid 2 text -->
-               <a-entity position="0 -0.45 0.05"
-                         scale="1 1 1"
-                         text="value: 3D Vid 2;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-london-tower-bridge.mp4"
-                         play-360>
-               </a-entity>
-
-        </a-box>
-
-        <!-- 2D Video -->
-        <a-video src="#video-2d"
-                 scale="0.5 0.5 1"
-                 width="16"
-                 height="9"
-                 position="0 5 -9">
-                 
-                 <a-image id="controls-2d" src="#play" position="0 -5 0.1" color="black" scale="0.8 0.8 1" play-pause-2d></a-image>
-        </a-video>
-
-        <!-- 360 Video -->
-        <a-videosphere id="videosphere" visible="false" src="#video-360" rotation="0 -90 0"></a-videosphere>
-        <a-image id="controls-360" src="#play" rotation="0 -90 0" position="3 1 -2.3" color="black" scale="0.8 0.8 1" play-pause-360></a-image>
-
-
-        <a-cylinder id="base-2"
-                    height="0.05"
-                    color="#2C3A47"
-                    position="0 0.05 5"
-                    scale="3 1 3"
-                    material="src: #texture-base;
-                              repeat: 1 1;">
-        </a-cylinder>
-
-
-        <!-- <a-image id="image-2d"
-                 src="#image-2d-ireland"
-                 position="0 2 -3"
-                 width="1.6"
-                 height="0.9"
-                 scale="4 4 1">
-      </a-image> -->
-            <a-curvedimage id="image-2d"
-                           src="#image-2d-ireland"
-                           theta-length="110"
-                           theta-start="-55"
-                           radius="1.5"
-                           height="1.4"
-                           position="0 6.5 5"
-                           scale="5 5 5"
-                           visible="false">
-            </a-curvedimage>
-
-        <!-- Banner Back -->
-        <a-box position="0 1.6 4"
-               depth="0.05d"
-               width="1.3"
-               height="1.5"
-               color="#EAB543"
-               rotation="0 180 0"
-               src="#texture-wood">
-
-               <!-- Mastil -->
-               <a-box position="0 -1 -0.05"
-                      height="1s"
-                      width="0.2"
-                      depth="0.1"
-                      src="#texture-stick">
-               </a-box>
-
-               <!-- Images text -->
-               <a-entity entity position="0 0.6 0.05"
-                         scale="1.2 1.2 1"
-                         text="value: Images;
-                               color: black;
-                               width: 1;
-                               align: center;
-                               wrapCount: 11">
-               </a-entity>
-
-               <!-- 2d Img architecture text -->
-               <a-entity entity position="0 0.3 0.05"
-                         scale="1 1 1"
-                         text="value: Architecture;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click="_event: click; _target: #image-2d; src: #image-2d-architecture">
-               </a-entity>
-
-               <!-- 2d Img ireland text -->
-               <a-entity entity position="0 0.05 0.05"
-                         scale="1 1 1"
-                         text="value: Ireland;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-ireland;">
-               </a-entity>
-
-               <!-- 2d Img landscape text -->
-               <a-entity position="0 -0.2 0.05"
-                         scale="1 1 1"
-                         text="value: Landscape;
-                               color: #bdc3c7;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                         event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-landscape;">
-               </a-entity>
-
-               <!-- 2d Img sunset text -->
-            <a-entity position="0 -0.45 0.05"
-                      scale="1 1 1"
-                      text="value: Sunset;
-                            color: #bdc3c7;
-                            width: 1;
-                            align: center;
-                            wrapCount: 10"
-                      geometry="primitive: plane; width: auto; height: auto;"
-                      material="visible: false;"
-                      event-set__enter="_event: mouseenter; text.color: white;"
-                      event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
-                      event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-sunset;">
-            </a-entity>
-
-        </a-box>
-
-    </a-scene>
-
-</body>
-
-</html>
 
 <!--
 Crear aplicación web 360 y VR que contenga los siguientes elementos.
@@ -424,3 +24,417 @@ Menú con 20 elementos en el que se pueda hacer scroll
         Cargar un vídeo plano 2d
         Cargar imagen o grupo de imágenes
 -->
+
+<body>
+      <a-scene>
+
+            <a-camera>
+                  <a-cursor></a-cursor>
+            </a-camera>
+
+            <a-assets>
+                  <!-- Texture base -->
+                  <img src="assets/base.jpg" id="texture-base" />
+                  <img src="assets/stick.jpg" id="texture-stick" />
+                  <img src="assets/wood.jpg" id="texture-wood" />
+                  <img src="assets/water.jpg" id="texture-water" />
+                  <img src="assets/sky.php" id="texture-sky" />
+
+                  <!-- 2d From pixbay (free to use) -->
+                  <img id="image-2d-architecture" src="./img/2d-architecture.jpg" />
+                  <img id="image-2d-ireland" src="./img/2d-ireland.jpg" />
+                  <img id="image-2d-landscape" src="./img/2d-landscape.jpg" />
+                  <img id="image-2d-sunset" src="./img/2d-sunset.jpg" />
+
+                  <!-- SF Alcatraz https://pixexid.com/free-photo/41-360-pier-39-sf-alcatraz-shop -->
+                  <img id="image-360-sf-alcatraz" src="./img/360-sf-alcatraz-shop-7140x3570.jpg" />
+                  <!-- Jellyfish https://www.flickr.com/photos/42983210@N03/47560713912/in/pool-360degrees/ -->
+                  <img id="image-360-jellyfish" src="./img/360-jellyfish.jpg" />
+                  <!-- Pile Gate https://www.flickr.com/photos/jamescastle/46105769784/in/pool-360degrees/ -->
+                  <img id="image-360-pile-gate" src="./img/360-pile-gate-dubrovnik.jpg" />
+                  <!-- Great Wall https://www.flickr.com/photos/hapephotographix/39737887023/in/pool-360degrees/ -->
+                  <img id="image-360-great-wall" src="./img/360-great-wall.jpg" />
+
+                  <!-- 2d gopro 6 https://www.youtube.com/watch?v=vr0qNXmkUJ8&t=208s -->
+                  <!-- 2d gopro https://www.youtube.com/watch?v=Prt-G4cPIn4-->
+                  <video id="video-2d" src="./vid/2d-gopro-hero-6.mp4" loop="true"></video>
+
+
+                  <!-- https://www.youtube.com/watch?v=WwRjPP-ANzs -->
+                  <!-- https://www.youtube.com/watch?v=AX4hWfyHr5g -->
+                  <!-- https://vimeo.com/215984568 -->
+                  <video id="video-360" src="./vid/360-magical-ice-rusia.mp4" loop="true"></video>
+
+                  <!-- Video assets -->
+                  <img id="play" src="assets/play.png" />
+                  <img id="pause" src="assets/pause.png" />
+            </a-assets>
+
+            <!-- Plane -->
+            <a-plane id="plane-1"
+                     color="#bdc3c7"
+                     position="0 0 -5"
+                     rotation="-90 0 0"
+                     scale="5000 5000 1"
+                     material="src: #texture-water;
+                               repeat: 1000 1000">
+            </a-plane>
+
+            <!-- Base -->
+            <a-cylinder id="base-1"
+                        height="0.05"
+                        color="#2C3A47"
+                        position="0 0.05 -5"
+                        scale="3 1 3"
+                        material="src: #texture-base;
+                                  repeat: 1 1;">
+            </a-cylinder>
+
+            <!-- Sky -->
+            <a-sky id="sky"
+                   rotation="0 61 0"
+                   src="#texture-sky">
+            </a-sky>
+
+            <!-- Banner Left -->
+            <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
+            <a-box position="-2.5 1.6 -4"
+                   depth="0.05d" width="1.3"
+                   height="1.5"
+                   color="#EAB543"
+                   rotation="0 45 0"
+                   src="#texture-wood">
+
+                  <!-- Mastil -->
+                  <a-box position="0 -1 -0.05"
+                         height="1s" width="0.2"
+                         depth="0.1"
+                         src="#texture-stick">
+                  </a-box>
+
+                  <!-- Backgrounds text -->
+                  <a-entity position="0 0.6 0.05"
+                            scale="1.2 1.2 1"
+                            text="value: Backgrounds;
+                                  color: black;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11">
+                  </a-entity>
+
+                  <!-- Alcatraz text -->
+                  <a-entity position="0 0.3 0.05"
+                            scale="1 1 1"
+                            text="value: SF Alcatraz;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #sky; src: #image-360-sf-alcatraz;"
+                            show-image-360>
+                  </a-entity>
+
+                  <!-- Jellyfish text -->
+                  <a-entity position="0 0.05 0.05"
+                            scale="1 1 1"
+                            text="value: Jellyfish;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #sky; src: #image-360-jellyfish;"
+                            show-image-360>
+                  </a-entity>
+
+                  <!-- Pile gate text -->
+                  <a-entity position="0 -0.2 0.05"
+                            scale="1 1 1"
+                            text="value: Pile Gate;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #sky; src: #image-360-pile-gate;"
+                            show-image-360>
+                  </a-entity>
+
+                  <!-- Great wall text -->
+                  <a-entity position="0 -0.45 0.05"
+                            scale="1 1 1"
+                            text="value: Great Wall;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #sky; src: #image-360-great-wall;"
+                            show-image-360>
+                  </a-entity>
+
+            </a-box>
+
+            <!-- Banner Right-->
+            <!-- Notas: Para hacer el text hoverable, agrego las propiedades geometry -->
+            <a-box position="2.5 1.6 -4"
+                   depth="0.05d"
+                   width="1.3"
+                   height="1.5"
+                   color="#EAB543"
+                   rotation="0 -45 0"
+                   src="#texture-wood">
+
+                  <!-- Mastil -->
+                  <a-box position="0 -1 -0.05"
+                         height="1"
+                         width="0.2"
+                         depth="0.1"
+                         src="#texture-stick">
+                  </a-box>
+
+                  <!-- Video text -->
+                  <a-entity position="0 0.6 0.05"
+                            scale="1.2 1.2 1"
+                            text="value: Videos;
+                                  color: black;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11">
+                  </a-entity>
+
+                  <!-- 2d vid 1 text -->
+                  <a-entity position="0 0.3 0.05"
+                            scale="1 1 1"
+                            text="value: 2D vid 1;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro-hero-6.mp4"
+                            event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
+                            play-2d>
+                  </a-entity>
+
+                  <!-- 2D vid 2 text -->
+                  <a-entity position="0 0.05 0.05"
+                            scale="1 1 1"
+                            text="value: 2D Vid 2;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro--awards-million-dollar.mp4"
+                            event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
+                            play-2d>
+                  </a-entity>
+
+                  <!-- 3D Vid 1 text -->
+                  <a-entity position="0 -0.2 0.05"
+                            scale="1 1 1"
+                            text="value: 3D Vid 1;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-magical-ice-rusia.mp4"
+                            play-360>
+                  </a-entity>
+
+                  <!-- 3D Vid 2 text -->
+                  <a-entity position="0 -0.45 0.05"
+                            scale="1 1 1"
+                            text="value: 3D Vid 2;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-london-tower-bridge.mp4"
+                            play-360>
+                  </a-entity>
+
+            </a-box>
+
+            <!-- 2D Video -->
+            <a-video src="#video-2d"
+                     scale="0.5 0.5 1"
+                     width="16"
+                     height="9"
+                     position="0 5 -9">
+
+                  <a-image id="controls-2d"
+                           src="#play"
+                           position="0 -5 0.1"
+                           color="black"
+                           scale="0.8 0.8 1"
+                           play-pause-2d></a-image>
+            </a-video>
+
+            <!-- 360 Video -->
+            <a-videosphere id="videosphere"
+                           visible="false"
+                           src="#video-360"
+                           rotation="0 -90 0">
+            </a-videosphere>
+
+            <a-image id="controls-360"
+                     src="#play"
+                     rotation="0 -90 0"
+                     position="3 1 -2.3"
+                     color="black"
+                     scale="0.8 0.8 1"
+                     play-pause-360>
+            </a-image>
+
+            <a-cylinder id="base-2"
+                        height="0.05"
+                        color="#2C3A47"
+                        position="0 0.05 5"
+                        scale="3 1 3"
+                        material="src: #texture-base;
+                                  repeat: 1 1;">
+            </a-cylinder>
+
+            <!-- <a-image id="image-2d"
+                          src="#image-2d-ireland"
+                          position="0 2 -3"
+                          width="1.6"
+                          height="0.9"
+                          scale="4 4 1">
+            </a-image> -->
+            <a-curvedimage id="image-2d"
+                           src="#image-2d-ireland"
+                           theta-length="110"
+                           theta-start="-55"
+                           radius="1.5"
+                           height="1.4"
+                           position="0 6.5 5"
+                           scale="5 5 5"
+                           visible="false">
+            </a-curvedimage>
+
+            <!-- Banner Back -->
+            <a-box position="0 1.6 4"
+                   depth="0.05d"
+                   width="1.3"
+                   height="1.5"
+                   color="#EAB543"
+                   rotation="0 180 0"
+                   src="#texture-wood">
+
+                  <!-- Mastil -->
+                  <a-box position="0 -1 -0.05"
+                         height="1s"
+                         width="0.2"
+                         depth="0.1"
+                         src="#texture-stick">
+                  </a-box>
+
+                  <!-- Images text -->
+                  <a-entity entity position="0 0.6 0.05"
+                            scale="1.2 1.2 1"
+                            text="value: Images;
+                                  color: black;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 11">
+                  </a-entity>
+
+                  <!-- 2d Img architecture text -->
+                  <a-entity entity position="0 0.3 0.05"
+                            scale="1 1 1"
+                            text="value: Architecture;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click="_event: click; _target: #image-2d; src: #image-2d-architecture"
+                            event-set__click-show-image="_event: click; _target: #image-2d; visible: true">
+                  </a-entity>
+
+                  <!-- 2d Img ireland text -->
+                  <a-entity entity position="0 0.05 0.05"
+                            scale="1 1 1"
+                            text="value: Ireland;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-ireland;"
+                            event-set__click-show-image="_event: click; _target: #image-2d; visible: true">
+                  </a-entity>
+
+                  <!-- 2d Img landscape text -->
+                  <a-entity position="0 -0.2 0.05"
+                            scale="1 1 1"
+                            text="value: Landscape;
+                                  color: #bdc3c7;
+                                  width: 1;
+                                  align: center;
+                                  wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-landscape;"
+                            event-set__click-show-image="_event: click; _target: #image-2d; visible: true">
+                  </a-entity>
+
+                  <!-- 2d Img sunset text -->
+                  <a-entity position="0 -0.45 0.05"
+                            scale="1 1 1"
+                            text="value: Sunset;
+                               color: #bdc3c7;
+                               width: 1;
+                               align: center;
+                               wrapCount: 10"
+                            geometry="primitive: plane; width: auto; height: auto;"
+                            material="visible: false;"
+                            event-set__enter="_event: mouseenter; text.color: white;"
+                            event-set__leave="_event: mouseleave; text.color: #bdc3c7;"
+                            event-set__click-background="_event: click; _target: #image-2d; src: #image-2d-sunset;"
+                            event-set__click-show-image="_event: click; _target: #image-2d; visible: true">
+                  </a-entity>
+            </a-box>
+
+      </a-scene>
+</body>
+
+</html>
