@@ -32,15 +32,14 @@
             <img id="360-great-wall" src="./img/360-great-wall.jpg" />
 
             <!-- 2d gopro 6 https://www.youtube.com/watch?v=vr0qNXmkUJ8&t=208s -->
-            <!-- <video id="2d-gopro6" src="vid/2d-gopro-hero-6.mp4" loop="true"></video> -->
             <!-- 2d gopro https://www.youtube.com/watch?v=Prt-G4cPIn4-->
-            <!-- <video id="video-gopro-2d" src="./vid/2d-gopro--awards-million-dollar.mp4"></video> -->
             <video id="video-2d" src="./vid/2d-gopro-hero-6.mp4" loop="true"></video>
 
 
             <!-- https://www.youtube.com/watch?v=WwRjPP-ANzs -->
             <!-- https://www.youtube.com/watch?v=AX4hWfyHr5g -->
-            <video id="video-360" src="./vid/360-magical-ice-rusia.mp4"></video>
+            <!-- https://vimeo.com/215984568 -->
+            <video id="video-360" src="./vid/360-magical-ice-rusia.mp4" loop="true"></video>
 
             <!-- Video assets -->
             <img id="play" src="assets/play.png" />
@@ -48,7 +47,7 @@
         </a-assets>
 
         <!-- Plane -->
-        <a-plane id="plane"
+        <a-plane id="plane-1"
                  color="#bdc3c7"
                  position="0 0 -5"
                  rotation="-90 0 0"
@@ -96,24 +95,6 @@
                                wrapCount: 11">
                </a-entity>
 
-               <!-- Alcatraz text -->
-               <!-- <a-entity position="0 0.3 0.05"
-                         scale="1 1 1"
-                         text="value: SF Alcatraz;
-                               color: #353b48;
-                               width: 1;
-                               align: center;
-                               wrapCount: 10"
-                         geometry="primitive: plane; width: auto; height: auto;"
-                         material="visible: false;"
-                         event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-background="_event: click; _target: #sky; src: #360-sf-alcatraz;"
-                         event-set__click-sky-color="_event: click; _target: #sky; color: white;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;"
-                         event-set__click-sphere="_event: click; _target: #videosphere; visible: false;"
-                         event-set__click-sky="_event: click; _target: #sky; visible: true;">
-               </a-entity> -->
                <!-- Alcatraz text -->
                <a-entity position="0 0.3 0.05"
                          scale="1 1 1"
@@ -220,7 +201,8 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro-hero-6.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play">
+                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
+                         play-2d>
                </a-entity>
 
                <!-- 2D vid 2 text -->
@@ -236,7 +218,8 @@
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
                          event-set__click-video-2d-load="_event: click; _target: #video-2d; src: vid/2d-gopro--awards-million-dollar.mp4"
-                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play">
+                         event-set__click-reset-controls="_event: click; _target: #controls-2d; src: #play"
+                         play-2d>
                </a-entity>
 
                <!-- 3D Vid 1 text -->
@@ -251,8 +234,8 @@
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
                          event-set__leave="_event: mouseleave; text.color: #353b48;"
-                         event-set__click-plane="_event: click; _target: #plane; visible: false;"
-                         event-set__click-sky="_event: click; _target: #sky; visible: false;">
+                         event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-magical-ice-rusia.mp4"
+                         play-360>
                </a-entity>
 
                <!-- 3D Vid 2 text -->
@@ -266,7 +249,9 @@
                          geometry="primitive: plane; width: auto; height: auto;"
                          material="visible: false;"
                          event-set__enter="_event: mouseenter; text.color: white;"
-                         event-set__leave="_event: mouseleave; text.color: #353b48;">
+                         event-set__leave="_event: mouseleave; text.color: #353b48;"
+                         event-set__click-video-360-load="_event: click; _target: #video-360; src: vid/360-london-tower-bridge.mp4"
+                         play-360>
                </a-entity>
 
         </a-box>
@@ -284,17 +269,6 @@
         <!-- 360 Video -->
         <a-videosphere id="videosphere" visible="false" src="#video-360" rotation="0 -90 0"></a-videosphere>
         <a-image id="controls-360" src="#play" rotation="0 -90 0" position="3 1 -2.3" color="black" scale="0.8 0.8 1" play-pause-360></a-image>
-
-
-        <!-- <a-assets>
-            <video id="vid" src="360-magical-ice-rusia.mp4" autoplay></video>
-        </a-assets>
-
-        <a-camera>
-            <a-cursor></a-cursor>
-        </a-camera>
-
-        <a-videosphere src="#vid" rotation="0 -90 0"></a-videosphere> -->
 
     </a-scene>
 
