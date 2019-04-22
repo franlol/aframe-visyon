@@ -16,7 +16,7 @@ Open index.html using a local server
 
 - There will be 3 banners like this one:
 
-![Banner]()
+![Banner](https://raw.githubusercontent.com/franlol/aframe-visyon/master/banner.png)
 
 - You can interact with the banners clicking on the options.
 
@@ -32,7 +32,7 @@ This proyect has been developed under Arch Linux and tested in Google Chrome wit
 
 ### Demo:
 
-![demo]()
+![demo](https://github.com/franlol/aframe-visyon/blob/master/demo.gif)
 
 #### More info:
 
