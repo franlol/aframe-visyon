@@ -9,6 +9,7 @@ git clone https://github.com/franlol/aframe-visyon.git
 
 Open index.html using a local server
 ```
+Or use [deployed](https://franlol.github.io/aframe-visyon/) version
 
 ### Features
 
